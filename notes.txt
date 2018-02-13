@@ -1,0 +1,6 @@
+Sum of frequencies around .065 implies plain text or shifting?
+CH1 Should be near .065 if plain: 0.0640261294616
+CH2 Should be near .065 if plain: 0.0408503303648
+CH3 Should be near .065 if plain: 0.0413382280077
+CH4 Should be near .065 if plain: 0.071094320672
+CH5 Should be near .065 if plain: 0.0686088364454
