@@ -39,7 +39,7 @@ def findKey(filename):
     ch.close()
     keylist = []
     for k in range(1,300):
-        subcipher = cipher[::k]
+        subcipher = cipher[3::k]
         frequency = {}
         for ascii in range(ord('a'), ord('a')+26):
             frequency[chr(ascii)] = float(subcipher.count(chr(ascii)))/len(subcipher)
@@ -136,12 +136,12 @@ def findKeywSpaces(filename):
 
 #findKey("ch2.txt")
 
-#findShiftKey(16, "ch2.txt")
+findShiftKey(16, "ch2.txt")
 
 #findFreq("ch3.txt")
 #findFreq("ch4.txt")
 
-vingerize("", 16, "coketurkgxwrsczo")
+#vingerize("", 16, "coketurkgxwrsczo")
 
 #look at 2 3 and 4
 
