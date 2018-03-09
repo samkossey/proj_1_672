@@ -96,14 +96,10 @@ def englishScore(text):
 #4
 #decrypt with the suspected key
 plain = vigenerize(readCipher('ch2.txt'), 16, "coketurkgxwrsczo")
-
+print plain
 #5
 #likelihood of being english score 
 #at least over 15 should be pretty solid?
-print englishScore(readCipher('testtext.txt'))
-print englishScore(readCipher('challenge.txt'))
 print englishScore(plain)
-#print englishScore(readCipher('mobydick.txt'))
-print englishScore(readCipher('ch1.txt'))
 
 

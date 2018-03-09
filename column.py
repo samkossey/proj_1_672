@@ -1,6 +1,7 @@
 import random
 import re
 import itertools
+import math
 
 digrams = ['th','he','in','er','an','re','ed','on','es','st','en','at','to','nt','ha','nd','ou', 'ea','ng','as', 'or','ti','is','et','it','ar','te','se','hi','of']
 
@@ -24,6 +25,29 @@ def findFreq(cipher):
         sum_freqs_squared += frequency[ltr]*frequency[ltr]
       
     return sum_freqs_squared
+    
+#BIGRAM FREQ MAP
+def bigrams():
+    bgrams = {}
+    for line in file('bigrams.txt'):
+        key,count = line.split(' ')
+        bgrams[key] = int(count)
+    total = sum(bgrams.itervalues())
+    for k in bgrams.keys():
+        bgrams[k] = math.log10(float(bgrams[k])/total)
+    floor = math.log10(.01/total)
+    return floor,bgrams
+    
+#BGRAM SCORE
+def bgramScore(text,floor,bgrams):
+    score = 0
+    for c in range(len(text)-2+1):
+        if text[c:c+2].upper() in bgrams:
+            
+            score = score + bgrams[text[c:c+2].upper()]
+        else:
+            score = score + floor
+    return score
     
 #ENGLISH SCORE
 def englishScore(text):
