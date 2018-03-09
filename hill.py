@@ -68,8 +68,8 @@ def englishScore(text):
     score = score * factor
     return score
     
-#GENERATE MATRICES
-alphabet = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z']
+#GENERATE MATRICES AND BRUTE FORCE
+#LOOKING FOR MATRIX THAT GIVES BEST ENGLISH SCORE
 def hill(cipher):
     list_a = list(range(26))
     matrixList = list(itertools.product(list_a, repeat =4))
@@ -80,6 +80,7 @@ def hill(cipher):
     bestC = ""
     bestD = ""
     count = 0
+    #so you can check how far you are into the program
     fh = open('count.txt','w')
     for one,two,three,four in matrixList:
         fh.write(str(count) + "\n")
@@ -89,22 +90,18 @@ def hill(cipher):
         b = two
         c = three
         d = four
-        det = (a*d - b*c) % 26
-        det2 = ((a-1)*d - b*(c-1)) % 26
-        if (det % 2 != 0 )and (det % 13 != 0) and (det2 % 26 != 0):
-            tempScore = decryptHill(cipher, a, b, c, d)
-            if (tempScore > bestScore):
-                bestScore = tempScore
-                bestA = a
-                bestB = b
-                bestC = c
-                bestD = d
-        else:
-           continue
+        
+        tempScore = decryptHill(cipher, a, b, c, d)
+        if (tempScore > bestScore):
+            bestScore = tempScore
+            bestA = a
+            bestB = b
+            bestC = c
+            bestD = d
     fh.close()
     print bestScore, bestA, bestB, bestC, bestD
        
-#DECRYPT
+#DECRYPT WITH SOME MATRIX
 def decryptHill(cipher, a, b, c, d):
     index = 0
     answer = ""
@@ -116,24 +113,19 @@ def decryptHill(cipher, a, b, c, d):
         answer = answer + p1 + p2
         index = index + 2
     print answer
-    print englishScore(answer)
     return englishScore(answer)
         
         
-#LETTERS --> NUMBERS
+#LETTERS <--> NUMBERS
 def toNumber(char):
     return (ord(char) - 97)
     
 def toChar(num):
     return chr(num + 97)
-    
-# freq = twoFreq(readCipher('ch3.txt'))
-# sorted_freq = sorted(freq, key=freq.get, reverse=True)
-# for f in sorted_freq:
-#     if freq[f] == 0:
-#         continue
-#     print f, freq[f]
 
+#BRUTE FORCE
 #hill(readCipher('ch3.txt'))
 
-decryptHill("dhixbv",14,11,1,15)
+#WINNER
+#1,24,1,15
+print decryptHill(readCipher('ch3.txt'),1,24,1,15)

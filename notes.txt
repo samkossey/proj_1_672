@@ -1,8 +1,7 @@
 Sum of frequencies around .065 implies plain text or permutations?
-CH1 Should be near .065 if plain: 0.0640261294616 - playfair because no j?
+CH1 Should be near .065 if plain: 0.0640261294616 - SOLVED W PLAYFAIR
 CH2 Should be near .065 if plain: 0.0408503303648 - SOLVED W VIGENERE
-CH3 Should be near .065 if plain: 0.0413382280077 - must be hill
+CH3 Should be near .065 if plain: 0.0413382280077 - SOLVED W HILL
 CH4 Should be near .065 if plain: 0.071094320672 - SOLVED W SUBSTITUTION
 CH5 Should be near .065 if plain: 0.0686088364454 - based on letter freq prob column
 
-#Ch 3 probably substitution??

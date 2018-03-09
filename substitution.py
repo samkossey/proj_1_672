@@ -171,7 +171,7 @@ def finalSub(cipher,subMap):
         answer = answer + char
     return answer
 
-#GOLD 
+#WINNER
 #subMap = {'y':'e', 'n': 't', 'q': 'h', 'v': 's', 'o':'g','r':'n', 'e':'i', 'p':'a', 'x':'d','a':'o','d':'r', 'z':'f','u':'m', 'j':'p','l':'u','g':'l','b':'k','c':'v','h':'w','t':'y','s':'b','f':'c'}
 subMap = {'y':'e', 'n': 't', 'q': 'h','v':'s','p':'a','e':'i','r':'n','j':'p','t':'y'}
 print substitute(readCipher('ch4.txt'), subMap) 
